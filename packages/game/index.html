@@ -13,10 +13,37 @@
         background: rgba(0, 0, 0, 0.6); border-radius: 4px; white-space: pre; pointer-events: none;
       }
       #debug[hidden] { display: none; }
+      #help {
+        position: fixed; bottom: 8px; left: 8px; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace;
+        color: #8ea3c4; background: rgba(0, 0, 0, 0.5); padding: 4px 8px; border-radius: 4px;
+      }
+      #tuning-button {
+        position: fixed; top: 8px; right: 8px; font: 12px ui-monospace, Menlo, Consolas, monospace;
+        background: #1b2236; color: #cfe3ff; border: 1px solid #34405e; border-radius: 4px; padding: 4px 8px; cursor: pointer;
+      }
+      #tuning {
+        position: fixed; top: 0; right: 0; bottom: 0; width: 300px; overflow-y: auto; box-sizing: border-box;
+        padding: 12px 14px; background: rgba(10, 13, 23, 0.94); color: #dbe7ff; border-left: 1px solid #262e45;
+        font: 12px/1.3 system-ui, sans-serif;
+      }
+      #tuning[hidden] { display: none; }
+      #tuning h2 { margin: 0 0 8px; font-size: 15px; display: flex; justify-content: space-between; align-items: baseline; }
+      #tuning h2 span { font-size: 11px; color: #7f8db0; font-weight: normal; }
+      #tuning h3 { margin: 12px 0 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #7f8db0; }
+      #tuning label { display: grid; grid-template-columns: 1fr 90px 40px; gap: 6px; align-items: center; margin: 3px 0; }
+      #tuning label:has(select), #tuning label:has(input[type=checkbox]) { grid-template-columns: 1fr auto; }
+      #tuning output { text-align: right; font-variant-numeric: tabular-nums; }
+      #tuning input[type=range] { width: 90px; }
+      #tuning .buttons { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+      #tuning button, #tuning select {
+        background: #1b2236; color: #dbe7ff; border: 1px solid #34405e; border-radius: 4px; padding: 4px 8px; font: inherit;
+      }
     </style>
   </head>
   <body>
     <div id="debug"></div>
+    <button id="tuning-button">Tuning (F2)</button>
+    <div id="help">A/D or ←/→ rotate · W or ↑ thrust · gamepad: stick + A · land gently and upright on green pads to repair</div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

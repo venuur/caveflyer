@@ -38,7 +38,7 @@ export class DebugOverlay {
       `map     ${state.map.id} ${state.map.width}x${state.map.height}`,
       `chunks  ${state.terrain.chunksX * state.terrain.chunksY} (${info.chunksUploaded} uploaded)`,
       '',
-      'F3 toggle · P pause · . step',
+      'F3 overlay · F2 tuning · P pause · ] step · R respawn',
     ].join('\n');
   }
 }
