@@ -1,0 +1,24 @@
+{
+  "name": "caveflyer",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @caveflyer/game",
+    "build": "npm run build -w @caveflyer/game",
+    "test": "vitest run",
+    "lint": "node scripts/lint-sim.mjs",
+    "typecheck": "tsc -p packages/sim && tsc -p packages/bots && tsc -p packages/game && tsc -p packages/tools",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "headless": "tsx packages/tools/src/headless.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.6",
+    "vitest": "5.1.0"
+  }
+}
