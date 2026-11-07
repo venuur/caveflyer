@@ -65,8 +65,28 @@ export function hashValue(v: unknown): number {
   return f.h >>> 0;
 }
 
+/**
+ * Terrain cells dominate state size, so their hash is cached by (array,
+ * revision). Every terrain edit goes through markDirty, which bumps the
+ * revision, so a cache hit always describes the current cells.
+ */
+const terrainCache = { cells: null as Uint8Array | null, revision: -1, hash: 0 };
+
+function terrainCellsHash(cells: Uint8Array, revision: number): number {
+  if (terrainCache.cells !== cells || terrainCache.revision !== revision) {
+    terrainCache.cells = cells;
+    terrainCache.revision = revision;
+    terrainCache.hash = hashValue(cells);
+  }
+  return terrainCache.hash;
+}
+
 export function hashState(state: SimState): number {
-  return hashValue(state);
+  const { cells, ...terrainRest } = state.terrain;
+  return hashValue({
+    ...state,
+    terrain: { ...terrainRest, cellsHash: terrainCellsHash(cells, state.terrain.revision) },
+  });
 }
 
 export function formatHash(h: number): string {
