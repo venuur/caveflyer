@@ -1,0 +1,20 @@
+{
+  "id": "tunnels",
+  "name": "Tunnels",
+  "width": 960,
+  "height": 640,
+  "image": "tunnels.png",
+  "gravity": 120,
+  "drag": 0.4,
+  "border": { "material": "metal", "thickness": 8 },
+  "spawns": [
+    { "x": 380, "y": 160 },
+    { "x": 580, "y": 160 },
+    { "x": 300, "y": 230 },
+    { "x": 660, "y": 230 }
+  ],
+  "pads": [
+    { "x": 440, "y": 290, "width": 80 },
+    { "x": 450, "y": 596, "width": 60 }
+  ]
+}
