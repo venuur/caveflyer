@@ -6,8 +6,11 @@ destructible caves. See [docs/](docs/README.md) for the design doc and decisions
 
 ## Status
 
-**M0 — Skeleton.** Monorepo, fixed-timestep deterministic sim, seeded PRNG,
-blank map rendered with PixiJS, debug overlay, headless runner.
+**M1 — Flight sandbox.** One ship on the Tunnels map: gravity, thrust, snappy
+rotation (or assisted steering on a gamepad), wall collisions with impact damage, landing pads
+that repair, respawn, follow camera with look-ahead, and a live tuning panel.
+
+Done: M0 (skeleton: monorepo, deterministic sim, PRNG, headless runner).
 
 ## Getting started
 
@@ -15,13 +18,25 @@ Requires Node 22+.
 
 ```sh
 npm install
-npm run dev        # browser client at http://localhost:5173  (?seed=7&map=blank)
+npm run dev        # browser client at http://localhost:5173  (?map=tunnels&hull=dart&assisted=1)
 npm run check      # sim lint + typecheck + tests
-npm run headless -- --map blank --seconds 600 --seed 1
+npm run headless -- --map tunnels --players 4 --seconds 60 --seed 1
+npx tsx packages/tools/src/genTunnels.ts   # regenerate content/maps/tunnels.png
 npm run build      # static build in packages/game/dist
 ```
 
-In the client: `F3` or `` ` `` toggles the debug overlay, `P` pauses, `.` single-steps.
+## Controls
+
+| Action | Left keys | Right keys | Gamepad |
+| --- | --- | --- | --- |
+| Rotate | A / D | ← / → | Left stick X or d-pad (assisted: stick sets nose direction) |
+| Thrust | W | ↑ | A or RT |
+
+In the M1 sandbox, both keyboard halves and the first gamepad all fly the one ship.
+
+Debug keys: `F2` tuning panel, `F3` or `` ` `` debug overlay, `P` pause, `]` single-step, `R` respawn.
+
+Land gently (≤ 40 px/s) and upright (within 20°) on a green pad to repair the hull.
 
 ## Layout
 
@@ -31,7 +46,7 @@ packages/
   bots/    bot AI (M4)
   game/    browser client: PixiJS rendering, loop, overlay
   tools/   headless runner, later balance reports and map importer
-content/   tuning, materials, maps (JSON), later hulls/weapons/utilities
+content/   tuning, materials, hulls, client (camera), maps (JSON sidecar + PNG)
 docs/      design doc link and decisions log
 ```
 
