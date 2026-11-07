@@ -1,0 +1,14 @@
+{
+  "id": "blank",
+  "name": "Blank",
+  "width": 640,
+  "height": 360,
+  "gravity": 120,
+  "drag": 0.15,
+  "border": { "material": "metal", "thickness": 8 },
+  "spawns": [
+    { "x": 120, "y": 120 },
+    { "x": 520, "y": 120 }
+  ],
+  "pads": []
+}

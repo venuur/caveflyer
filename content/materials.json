@@ -1,0 +1,7 @@
+{
+  "air":   { "id": 0, "color": "#0b0d17", "toughness": 0,   "friction": 0 },
+  "dirt":  { "id": 1, "color": "#8a5a32", "toughness": 1,   "friction": 0.6 },
+  "rock":  { "id": 2, "color": "#6b6f7a", "toughness": 4,   "friction": 0.6 },
+  "metal": { "id": 3, "color": "#9fb4c7", "toughness": -1,  "friction": 0.5 },
+  "ice":   { "id": 4, "color": "#a8e4f0", "toughness": 1,   "friction": 0.05 }
+}
