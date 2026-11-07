@@ -1,0 +1,1 @@
+{ "id": "brick", "name": "Brick", "mass": 1.6, "thrust": 380, "turnRate": 170, "armor": 170, "size": 15, "points": 5, "role": "Slow to turn, shrugs off recoil and hits" }

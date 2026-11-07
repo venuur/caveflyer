@@ -1,0 +1,1 @@
+{ "id": "dart", "name": "Dart", "mass": 0.7, "thrust": 330, "turnRate": 300, "armor": 60, "size": 10, "points": 3, "role": "Fast, fragile, thrown around by recoil" }

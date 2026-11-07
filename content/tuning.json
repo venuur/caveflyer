@@ -1,3 +1,22 @@
 {
-  "tickRate": 60
+  "tickRate": 60,
+  "ship": {
+    "collisionSamples": 12,
+    "maxSubstepPx": 2,
+    "restitution": 0.3,
+    "restSpeed": 25,
+    "contactFriction": 0.2,
+    "wallDamage": true,
+    "damageThreshold": 90,
+    "damagePerSpeed": 0.4,
+    "respawnSeconds": 3,
+    "invulnSeconds": 2
+  },
+  "pad": {
+    "maxLandingSpeed": 40,
+    "maxLandingAngleDeg": 20,
+    "safeImpactSpeed": 160,
+    "repairPerSecond": 20,
+    "snapDistance": 3
+  }
 }

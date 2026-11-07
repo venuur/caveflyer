@@ -1,0 +1,8 @@
+{
+  "camera": {
+    "targetVisibleHeight": 300,
+    "lookAheadSeconds": 0.35,
+    "maxLookAheadPx": 90,
+    "smoothing": 8
+  }
+}
